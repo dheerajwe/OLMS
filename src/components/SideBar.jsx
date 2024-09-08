@@ -5,9 +5,7 @@ function Sidebar({ setCurrentPage }) {
   return (
     <aside id="sidebar" className="sidebar">
       <ul className="sidebar-nav" id="sidebar-nav">
-        <li className="nav-item">git remote add origin https://github.com/dheerajwe/hi.git
-          git branch -M main
-          git push -u origin main
+        <li className="nav-item">
           <a className="nav-link" href="#" onClick={() => setCurrentPage('Dashboard', 'Dashboard')}>
             <i className="bi bi-grid"></i>
             <span>Dashboard</span>
