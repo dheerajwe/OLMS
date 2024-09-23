@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function Sidebar({ setCurrentPage }) {
+  const [isSidebarActive, setSidebarActive] = useState(true); // Sidebar is active by default
+
+  useEffect(() => {
+    // Ensure the sidebar is visible on initial load
+    document.getElementById('sidebar').classList.add('active');
+  }, []);
+
   return (
-    <aside id="sidebar" className="sidebar">
+    <aside id="sidebar" className={`sidebar ${isSidebarActive ? 'active' : ''}`}>
       <ul className="sidebar-nav" id="sidebar-nav">
         <li className="nav-item">
           <a className="nav-link" href="#" onClick={() => setCurrentPage('Dashboard', 'Dashboard')}>

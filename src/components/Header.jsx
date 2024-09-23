@@ -4,14 +4,7 @@ import dj from '../assets/dj.jpeg';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is included
 import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is included
 
-function Header() {
-  const [isSidebarActive, setSidebarActive] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarActive(!isSidebarActive);
-    document.getElementById('sidebar').classList.toggle('active');
-  };
-
+function Header({ toggleSidebar }) {
   return (
     <header id="header" className="header fixed-top d-flex align-items-center">
       <div className="d-flex align-items-center justify-content-between">

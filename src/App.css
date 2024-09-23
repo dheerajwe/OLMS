@@ -14,7 +14,7 @@ body {
 
 /* Content area takes up all available space */
 .main-content {
-  flex: 1;
+  transition: all 0.4s ease;
 }
 
 /* Optional: Style the footer */
@@ -206,15 +206,30 @@ body {
   /* Initially hidden */
 }
 
-.sidebar.active {
+.sidebar-active .main-content {
+  margin-left: 0px;
+
+}
+
+.sidebar-inactive .main-content {
+  margin-left: -300px;
+
+}
+
+.sidebar-inactive .sidebar {
+  transform: translateX(-100%);
+}
+
+/* Show sidebar */
+.sidebar-active .sidebar {
   transform: translateX(0);
-  /* Slide in from the left */
 }
 
 .sidebar.collapsed {
   width: 80px;
   /* Optional: collapsed state width */
 }
+
 
 
 @media (max-width: 1199px) {

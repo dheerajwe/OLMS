@@ -12,11 +12,12 @@ import IssueForm from './components/IssueForm';
 import ComplaintForm from './components/ComplaintForm';
 import OutingForm from './components/OutingForm';
 import OutingList from './components/OutingList';
-import DashboardCards from './components/DashboardCards'; // Import the new DashboardCards component
+import DashboardCards from './components/DashboardCards';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Dashboard');
-  const [breadcrumb, setBreadcrumb] = useState('');
+  const [breadcrumb, setBreadcrumb] = useState('Dashboard');
+  const [isSidebarActive, setSidebarActive] = useState(true); // Sidebar state
 
   const updatePage = (page, breadcrumbText) => {
     setCurrentPage(page);
@@ -25,6 +26,10 @@ function App() {
 
   const handleHomeClick = () => {
     updatePage('Dashboard', 'Dashboard');
+  };
+
+  const toggleSidebar = () => {
+    setSidebarActive(!isSidebarActive);
   };
 
   const renderContent = () => {
@@ -44,22 +49,29 @@ function App() {
       case 'All Outings':
         return <OutingList />;
       case 'Dashboard':
-        return <DashboardCards />; // Render the new DashboardCards component
+        return <DashboardCards />;
       default:
-        return <div>{/* Default content */}</div>;
+        return <div>No Content Found</div>;
     }
   };
 
   return (
-    <div className="App">
-      <Header />
+    <div className={`App ${isSidebarActive ? 'sidebar-active' : 'sidebar-inactive'}`}>
+      {/* Header */}
+      <Header toggleSidebar={toggleSidebar} />
+
       <div className="d-flex flex-grow-1">
+        {/* Sidebar */}
         <Sidebar setCurrentPage={updatePage} />
-        <main className="main-content flex-grow-1">
+
+        {/* Main Content */}
+        <main className={`main-content flex-grow-1`}>
           <PageTitle title={currentPage} breadcrumb={breadcrumb} onHomeClick={handleHomeClick} />
-          {renderContent()} {/* Render the content based on the current page */}
+          {renderContent()}
         </main>
       </div>
+
+      {/* Footer */}
       <Footer />
     </div>
   );
