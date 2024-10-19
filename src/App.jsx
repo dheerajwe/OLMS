@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
-import Sidebar from './components/Sidebar'; // Correct import
+import Sidebar from './components/SideBar'; // Correct import
 import Footer from './components/Footer';
 import PageTitle from './components/PageTitle';
 import Profile from './components/Profile';
