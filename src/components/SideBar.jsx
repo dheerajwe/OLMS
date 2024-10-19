@@ -1,13 +1,12 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-// eslint-disable-next-line react/prop-types
+
 function Sidebar({ setCurrentPage, isOpen, toggleSidebar }) {
   const [isSidebarActive, setSidebarActive] = useState(true); // Sidebar is active by default
 
   useEffect(() => {
-    // Ensure the sidebar is visible on initial load
+   
     if (isOpen) {
       document.getElementById('sidebar').classList.add('active');
     } else {

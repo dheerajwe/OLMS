@@ -1,10 +1,8 @@
-
-
 function PageTitle({ title, breadcrumb, onHomeClick }) {
   const handleHomeClick = (event) => {
-    event.preventDefault(); // Prevent the default link behavior
+    event.preventDefault(); 
     if (onHomeClick) {
-      onHomeClick(); // Call the onHomeClick function to update state
+      onHomeClick(); 
     }
   };
 

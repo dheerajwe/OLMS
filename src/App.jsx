@@ -62,7 +62,7 @@ function App() {
 
       <div className="d-flex flex-grow-1">
         {/* Sidebar */}
-        <Sidebar setCurrentPage={updatePage} isSidebarActive={isSidebarActive} />
+        <Sidebar setCurrentPage={updatePage} isSidebarActive={isSidebarActive} toggleSidebar={toggleSidebar} />
 
         {/* Main Content */}
         <main className={`main-content flex-grow-1`}>
