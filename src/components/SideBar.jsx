@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
+
 function Sidebar({ setCurrentPage, isOpen, toggleSidebar }) {
   const [isSidebarActive, setSidebarActive] = useState(true); // Sidebar is active by default
 
