@@ -1,12 +1,11 @@
-
 import './ComplaintForm.css'; // Import the CSS file for styling
 
 function ComplaintForm() {
   return (
-    <div className="main-form mx-auto">
-      <form action="#">
+    <div className="main-form mx-auto"> {/* Added main-form class here */}
+      <form action="#">       
         <div className="row">
-          <div className="col-12 input_field">
+          <div className="col-12">
             <label htmlFor="complaint-type" className="form-label">
               Complaint Type
             </label>
@@ -17,7 +16,7 @@ function ComplaintForm() {
               <option value="other">Other</option>
             </select>
           </div>
-          <div className="col-12 hide-other">
+          <div className="col-12">
             <label htmlFor="other-complaint" className="form-label">
               Other
             </label>
@@ -44,8 +43,8 @@ function ComplaintForm() {
           <input
             type="submit"
             value="Register Complaint"
-            className="btn btn-primary w-50"
-            style={{ margin: '5px 25%' }}
+            className="btn btn-primary w-100" // Full width for button
+            style={{ margin: '5px 0' }}
           />
         </div>
       </form>

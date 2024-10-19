@@ -1,9 +1,11 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 import dj from '../assets/dj.jpeg';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is included
 import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is included
 
+// eslint-disable-next-line react/prop-types
 function Header({ toggleSidebar }) {
   return (
     <header id="header" className="header fixed-top d-flex align-items-center">

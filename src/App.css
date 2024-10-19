@@ -189,12 +189,11 @@ body {
 
 .sidebar {
   position: fixed;
-  top: 60px;
-  /* This should match the height of your header */
+  top: 60px; /* This should match the height of your header */
   left: 0;
   bottom: 0;
   width: 300px;
-  z-index: 996;
+  z-index: 996; /* Ensure it's on top of other content */
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 20px;
   overflow-y: auto;
@@ -202,42 +201,57 @@ body {
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
-  transform: translateX(-100%);
-  /* Initially hidden */
+  transform: translateX(-100%); /* Initially hidden */
 }
 
+/* When sidebar is active, show it */
+.sidebar-active .sidebar {
+  transform: translateX(0); /* Bring sidebar into view */
+}
+
+/* Ensure main content does not shift when sidebar is active */
 .sidebar-active .main-content {
-  margin-left: 0px;
-
+  margin-left: 0; /* Do not shift main content */
 }
 
+/* Styles when sidebar is inactive */
 .sidebar-inactive .main-content {
-  margin-left: -300px;
-
+  margin-left: -300px; /* Optional adjustment */
 }
 
 .sidebar-inactive .sidebar {
-  transform: translateX(-100%);
+  transform: translateX(-100%); /* Keep sidebar hidden */
 }
 
-/* Show sidebar */
-.sidebar-active .sidebar {
-  transform: translateX(0);
-}
-
+/* Optional collapsed state width */
 .sidebar.collapsed {
-  width: 80px;
-  /* Optional: collapsed state width */
+  width: 80px; /* Optional: collapsed state width */
 }
 
-
-
-@media (max-width: 1199px) {
+@media (max-width: 768px) {
   .sidebar {
-    left: -300px;
+    width: 200px; /* Adjusted width for mobile */
+    transform: translateX(-100%); /* Hide sidebar off-screen initially */
+  }
+
+  /* Show sidebar when active */
+  .sidebar-active .sidebar {
+    transform: translateX(0); /* Bring sidebar into view when active */
+  }
+
+  /* Keep main content unaffected */
+  .sidebar-active .main-content {
+    margin-left: -300px; /* Do not shift main content */
+  }
+
+  /* Adjust for active sidebar in mobile view */
+  .sidebar-active .main-content {
+    transition: margin-left 0.4s; /* Smooth transition */
   }
 }
 
+
+/* Scrollbar styles */
 .sidebar::-webkit-scrollbar {
   width: 5px;
   height: 8px;
@@ -249,30 +263,29 @@ body {
 }
 
 @media (min-width: 1200px) {
-
   #main,
   #footer {
-    margin-left: 300px;
+    margin-left: 300px; /* Regular layout for larger screens */
   }
 }
 
 @media (max-width: 1199px) {
   .toggle-sidebar .sidebar {
-    left: 0;
+    left: 0; /* Sidebar position on toggle */
   }
 }
 
 @media (min-width: 1200px) {
-
   .toggle-sidebar #main,
   .toggle-sidebar #footer {
-    margin-left: 0;
+    margin-left: 0; /* Regular layout for larger screens */
   }
 
   .toggle-sidebar .sidebar {
-    left: -300px;
+    left: -300px; /* Regular sidebar position */
   }
 }
+
 
 .sidebar-nav {
   padding: 0;

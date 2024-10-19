@@ -36,3 +36,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   /* Slightly darker gray shadow on hover */
 }
+@media (max-width: 768px) {
+  .main-form {
+    max-width: 44%; /* Allow full width on mobile */
+    margin: 30px ; /* Add margin on mobile */
+    position:relative;
+    left: 141px;
+    padding: 10px; /* Slightly reduced padding */
+    box-shadow: none; /* Optional: Remove shadow for cleaner look */
+  }
+}

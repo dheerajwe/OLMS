@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
-import Sidebar from './components/SideBar';
+import Sidebar from './components/Sidebar'; // Correct import
 import Footer from './components/Footer';
 import PageTitle from './components/PageTitle';
 import Profile from './components/Profile';
@@ -17,7 +17,7 @@ import DashboardCards from './components/DashboardCards';
 function App() {
   const [currentPage, setCurrentPage] = useState('Dashboard');
   const [breadcrumb, setBreadcrumb] = useState('Dashboard');
-  const [isSidebarActive, setSidebarActive] = useState(true); // Sidebar state
+  const [isSidebarActive, setSidebarActive] = useState(false); // Initially inactive for mobile
 
   const updatePage = (page, breadcrumbText) => {
     setCurrentPage(page);
@@ -62,7 +62,7 @@ function App() {
 
       <div className="d-flex flex-grow-1">
         {/* Sidebar */}
-        <Sidebar setCurrentPage={updatePage} />
+        <Sidebar setCurrentPage={updatePage} isSidebarActive={isSidebarActive} />
 
         {/* Main Content */}
         <main className={`main-content flex-grow-1`}>

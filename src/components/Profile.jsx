@@ -3,32 +3,56 @@ import './Profile.css';
 const Profile = () => {
   return (
     <div className="profile-container">
-      <div className="col-xl-4">
-        <div className="card">
-          <div className="card-body profile-card pt-4 d-flex flex-column align-items-center" style={{ border: " none" }}>
-            <img src="https://intranet.rguktn.ac.in/SMS/usrphotos/user/N200800.jpg" alt="Profile" className="rounded-circle" />
-            <h2>Mande Dheeraj</h2>
-            <h3>N200800 | E-3</h3>
+      <div className="col-xl-4 col-md-12">
+        <div className="card profile-card">
+          <div className="card-body d-flex flex-column align-items-center">
+            <img
+              src="https://intranet.rguktn.ac.in/SMS/usrphotos/user/N200800.jpg"
+              alt="Profile"
+              className="rounded-circle profile-image"
+            />
+            <h2 className="profile-name">Mande Dheeraj</h2>
+            <h3 className="profile-id">N200800 | E-3</h3>
           </div>
         </div>
       </div>
 
-      <div className="col-xl-8">
+      <div className="col-xl-8 col-md-12">
         <div className="card">
           <div className="card-body pt-3">
             <ul className="nav nav-tabs nav-tabs-bordered" role="tablist">
               <li className="nav-item" role="presentation">
-                <button className="nav-link" data-bs-toggle="tab" data-bs-target="#profile-overview" aria-selected="false" role="tab" tabIndex="-1">
+                <button
+                  className="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#profile-overview"
+                  aria-selected="false"
+                  role="tab"
+                  tabIndex="-1"
+                >
                   View Profile
                 </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit" aria-selected="true" role="tab">
+                <button
+                  className="nav-link active"
+                  data-bs-toggle="tab"
+                  data-bs-target="#profile-edit"
+                  aria-selected="true"
+                  role="tab"
+                >
                   Edit Profile
                 </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password" aria-selected="false" role="tab" tabIndex="-1">
+                <button
+                  className="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#profile-change-password"
+                  aria-selected="false"
+                  role="tab"
+                  tabIndex="-1"
+                >
                   Change Password
                 </button>
               </li>
@@ -141,10 +165,6 @@ const Profile = () => {
                 </form>
               </div>
 
-              <div className="tab-pane fade pt-3" id="profile-settings" role="tabpanel">
-                {/* Settings Form */}
-              </div>
-
               <div className="tab-pane fade pt-3" id="profile-change-password" role="tabpanel">
                 <form>
                   <div className="row mb-3">
@@ -160,9 +180,9 @@ const Profile = () => {
                     </div>
                   </div>
                   <div className="row mb-3">
-                    <label htmlFor="renewPassword" className="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                    <label htmlFor="confirmPassword" className="col-md-4 col-lg-3 col-form-label">Confirm Password</label>
                     <div className="col-md-8 col-lg-9">
-                      <input name="renewPassword" type="password" className="form-control" id="renewPassword" />
+                      <input name="confirmPassword" type="password" className="form-control" id="confirmPassword" />
                     </div>
                   </div>
                   <div className="text-center">

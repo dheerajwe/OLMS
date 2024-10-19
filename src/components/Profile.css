@@ -178,3 +178,74 @@
   font-family: 'Arial', sans-serif;
   /* Change font */
 }
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .profile-container {
+    display: block;
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .col-xl-4,
+  .col-xl-8 {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    /* Stack the columns on mobile */
+  }
+
+  .profile-card {
+    display: block;
+    text-align: center;
+    /* Center content on mobile */
+  }
+
+  .profile-card img {
+    max-width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    /* Reduce image size on mobile */
+  }
+
+  .profile-card h2,
+  .profile-card h3 {
+    margin: 10px 0;
+    /* Adjust margins */
+  }
+
+  .nav-tabs {
+    text-align: center;
+    /* Center tabs on mobile */
+  }
+
+  .nav-tabs .nav-link {
+    display: block;
+    margin-bottom: 10px;
+    /* Stack tabs vertically */
+  }
+
+  .tab-content .row {
+    margin-bottom: 10px;
+    /* Reduce row margin for mobile */
+  }
+
+  .form-control {
+    font-size: 14px;
+    /* Adjust font size for mobile */
+  }
+
+  .btn-primary {
+    width: 100%;
+    /* Make buttons full-width on mobile */
+  }
+}
+@media (max-width: 768px) {
+  .profile-container {
+    max-width: 66%; /* Allow full width on mobile */
+    margin: 38px ; /* Add margin on mobile */
+    position:relative;
+    left: 245px;
+    padding: 10px; /* Slightly reduced padding */
+    box-shadow: none; /* Optional: Remove shadow for cleaner look */
+  }
+}
