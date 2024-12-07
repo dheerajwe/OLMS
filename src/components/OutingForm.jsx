@@ -1,5 +1,5 @@
 // OutingForm.jsx
-import React from 'react';
+
 import './OutingForm.css'; // Import the CSS file for styling
 
 const OutingForm = () => {
@@ -36,7 +36,7 @@ const OutingForm = () => {
             <div className="w-100">
               <input
                 type="submit"
-                value="Submit Outing Request"
+                value="Submit"
                 className="btn btn-primary w-50"
                 style={{ margin: '5px 25%' }}
               />

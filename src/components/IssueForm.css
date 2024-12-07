@@ -1,15 +1,13 @@
+/* Issue Form Wrapper */
 .issue-form-wrapper {
-  width: calc(100% - 300px);
-  /* Ensure the form does not overlap the sidebar */
-  margin-left: 300px;
-  /* Space for the sidebar */
+  width: calc(100% - 300px); /* Ensure the form does not overlap the sidebar */
+  margin-left: 300px; /* Space for the sidebar */
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }
 
 .card {
-  border: none;
-  /* Removed border */
+  border: none; /* Removed border */
   border-radius: 0.375rem;
   overflow: hidden;
   background-color: #ffffff;
@@ -40,8 +38,7 @@
 
 .dataTable-selector {
   border-radius: 0.375rem;
-  border: none;
-  /* Removed border */
+  border: none; /* Removed border */
   padding: 0.375rem 0.75rem;
 }
 
@@ -52,11 +49,9 @@
 .dataTable-input {
   width: 200px;
   border-radius: 0.375rem;
-  border: none;
-  /* Removed border */
+  border: none; /* Removed border */
   padding: 0.375rem 0.75rem;
   color: #000;
-  /* Black text */
 }
 
 .dataTable-container {
@@ -67,13 +62,11 @@
   width: 100%;
   margin-bottom: 1rem;
   color: #212529;
-  /* Black text */
 }
 
 .table-borderless th,
 .table-borderless td {
-  border: 0;
-  /* Removed border */
+  border: 0; /* Removed border */
 }
 
 .dataTable-table th,
@@ -86,31 +79,24 @@
 .dataTable-table thead th {
   background-color: #f8f9fa;
   color: #000;
-  /* Black text for headers */
 }
 
 .dataTable-table tbody th {
   color: #000;
-  /* Black text for S.NO column numbers */
   text-decoration: none;
-  /* Remove underline from S.NO numbers */
 }
 
 .dataTable-table tbody td {
   color: #000;
-  /* Black text for table data */
 }
 
 .dataTable-sorter {
   color: #000;
-  /* Black text for sortable headers */
   text-decoration: none;
-  /* Remove underline from header links */
 }
 
 .dataTable-sorter:hover {
-  text-decoration: underline;
-  /* Underline only on hover */
+  text-decoration: underline; /* Underline only on hover */
 }
 
 .dataTable-bottom {
@@ -144,8 +130,7 @@
   display: block;
   padding: 0.375rem 0.75rem;
   border-radius: 0.375rem;
-  color: #007bff;
-  /* Blue color for pagination links */
+  color: #007bff; /* Blue color for pagination links */
   text-decoration: none;
 }
 
@@ -180,6 +165,66 @@
 }
 
 .text-primary:hover {
-  text-decoration: none;
-  /* Remove underline on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Responsive Media Query for smaller devices */
+@media (max-width: 768px) {
+  /* Issue Form Wrapper */
+  .issue-form-wrapper {
+    width: 100%; /* Take full width on small screens */
+    margin-left: 0; /* Remove margin-left */
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  /* Card */
+  .card {
+    width: 100%; /* Ensure card takes full width */
+    margin: 0 auto; /* Center card */
+  }
+
+  /* Card body padding */
+  .card-body {
+    padding: 1rem;
+  }
+
+  /* Data Table Wrapper */
+  .dataTable-wrapper {
+    padding: 38px; /* Reduce padding */
+    margin:-65px 250px;
+  }
+
+  /* Data Table Top */
+  .dataTable-top {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align elements to the left */
+  }
+
+  /* Data Table Input */
+  .dataTable-input {
+    width: 100%; /* Make input full width on small screens */
+    margin-bottom: 10px; /* Add spacing between elements */
+  }
+
+  /* Table */
+  .table {
+    width: 100%; /* Ensure table takes full width */
+    margin-bottom: 1rem;
+  }
+
+  /* Pagination */
+  .dataTable-pagination-list {
+    flex-direction: column; /* Stack pagination items vertically */
+    align-items: flex-start;
+  }
+
+  .dataTable-pagination-list li {
+    margin-bottom: 5px; /* Add margin between pagination items */
+  }
+
+  /* Data Table Info */
+  .dataTable-info {
+    font-size: 0.75rem; /* Adjust font size for smaller screens */
+  }
 }

@@ -1,19 +1,19 @@
-// OutingList.jsx
-import React from 'react';
-import './OutingList.css'; // Import the CSS file for styling
+import styles from './OutingList.module.css'; // Import CSS module
 
 const OutingList = () => {
   return (
-    <div className="outing-list-wrapper">
-      <div className="card">
-        <div className="card-body">
-          <div className="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
-            <div className="dataTable-top">
-              <div className="dataTable-dropdown">
+    <div className={styles.outingListWrapper}>
+      <div className={styles.card}>
+        <div className={styles.cardBody}>
+          <div className={`${styles.dataTableWrapper} dataTable-loading no-footer sortable searchable fixed-columns`}>
+            <div className={styles.dataTableTop}>
+              <div className={styles.dataTableDropdown}>
                 <label>
-                  <select className="dataTable-selector">
+                  <select className={styles.dataTableSelector}>
                     <option value="5">5</option>
-                    <option value="10" selected="">10</option>
+                    <option value="10" selected="">
+                      10
+                    </option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
@@ -21,29 +21,37 @@ const OutingList = () => {
                   entries per page
                 </label>
               </div>
-              <div className="dataTable-search">
+              <div className={styles.dataTableSearch}>
                 <input
-                  className="dataTable-input"
+                  className={styles.dataTableInput}
                   placeholder="Search..."
                   type="text"
                 />
               </div>
             </div>
-            <div className="dataTable-container">
-              <table className="table table-borderless dataTable-table">
+            <div className={styles.dataTableContainer}>
+              <table className={`${styles.table} ${styles.tableBorderless} dataTable-table`}>
                 <thead>
                   <tr>
                     <th scope="col" style={{ width: '12.8458%' }}>
-                      <a href="#" className="dataTable-sorter">S.NO</a>
+                      <a href="#" className={styles.dataTableSorter}>
+                        S.NO
+                      </a>
                     </th>
                     <th scope="col" style={{ width: '23.3202%' }}>
-                      <a href="#" className="dataTable-sorter">DATE</a>
+                      <a href="#" className={styles.dataTableSorter}>
+                        DATE
+                      </a>
                     </th>
                     <th scope="col" style={{ width: '50%' }}>
-                      <a href="#" className="dataTable-sorter">REASON</a>
+                      <a href="#" className={styles.dataTableSorter}>
+                        REASON
+                      </a>
                     </th>
                     <th scope="col" style={{ width: '13.8340%' }}>
-                      <a href="#" className="dataTable-sorter">STATUS</a>
+                      <a href="#" className={styles.dataTableSorter}>
+                        STATUS
+                      </a>
                     </th>
                   </tr>
                 </thead>
@@ -54,7 +62,9 @@ const OutingList = () => {
                     </th>
                     <td>1-1-2000</td>
                     <td>Personal</td>
-                    <td><span className="badge bg-success">Approved</span></td>
+                    <td>
+                      <span className={`${styles.badge} ${styles.bgSuccess}`}>Approved</span>
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">
@@ -62,7 +72,9 @@ const OutingList = () => {
                     </th>
                     <td>3-3-2000</td>
                     <td>Medical</td>
-                    <td><span className="badge bg-warning">Pending</span></td>
+                    <td>
+                      <span className={`${styles.badge} ${styles.bgWarning}`}>Pending</span>
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">
@@ -70,15 +82,17 @@ const OutingList = () => {
                     </th>
                     <td>12-12-2000</td>
                     <td>Family Event</td>
-                    <td><span className="badge bg-danger">Rejected</span></td>
+                    <td>
+                      <span className={`${styles.badge} ${styles.bgDanger}`}>Rejected</span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div className="dataTable-bottom">
-              <div className="dataTable-info">Showing 1 to 3 of 3 entries</div>
-              <nav className="dataTable-pagination">
-                <ul className="dataTable-pagination-list"></ul>
+            <div className={styles.dataTableBottom}>
+              <div className={styles.dataTableInfo}>Showing 1 to 3 of 3 entries</div>
+              <nav className={styles.dataTablePagination}>
+                <ul className={styles.dataTablePaginationList}></ul>
               </nav>
             </div>
           </div>

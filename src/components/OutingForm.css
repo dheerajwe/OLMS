@@ -37,7 +37,7 @@
 @media (max-width: 768px) {
   .outing-form-wrapper {
     max-width: 54%; /* Allow full width on mobile */
-    left: 141px;
+    left: 155px;
     padding: 10px; /* Slightly reduced padding */
     box-shadow: none; /* Optional: Remove shadow for cleaner look */
   }

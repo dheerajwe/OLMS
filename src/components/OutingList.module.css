@@ -1,9 +1,7 @@
-/* OutingList.css */
-.outing-list-wrapper {
+.outingListWrapper {
   width: calc(100% - 300px);
   margin-left: 300px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
 }
 
@@ -14,40 +12,40 @@
   background-color: #ffffff;
 }
 
-.card-body {
+.cardBody {
   padding: 1.25rem;
 }
 
-.dataTable-wrapper {
+.dataTableWrapper {
   position: relative;
-  padding: 20px;
+  padding: 0px;
   background: #ffffff;
   border-radius: 0.375rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.dataTable-top {
+.dataTableTop {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
 
-.dataTable-dropdown label {
+.dataTableDropdown label {
   font-size: 0.875rem;
   color: #495057;
 }
 
-.dataTable-selector {
+.dataTableSelector {
   border-radius: 0.375rem;
   border: none;
   padding: 0.375rem 0.75rem;
 }
 
-.dataTable-search {
+.dataTableSearch {
   position: relative;
 }
 
-.dataTable-input {
+.dataTableInput {
   width: 200px;
   border-radius: 0.375rem;
   border: none;
@@ -55,7 +53,7 @@
   color: #000;
 }
 
-.dataTable-container {
+.dataTableContainer {
   overflow-x: auto;
 }
 
@@ -65,69 +63,69 @@
   color: #212529;
 }
 
-.table-borderless th,
-.table-borderless td {
+.tableBorderless th,
+.tableBorderless td {
   border: 0;
 }
 
-.dataTable-table th,
-.dataTable-table td {
+.dataTableTable th,
+.dataTableTable td {
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
 
-.dataTable-table thead th {
+.dataTableTable thead th {
   background-color: #f8f9fa;
   color: #000;
 }
 
-.dataTable-table tbody th {
+.dataTableTable tbody th {
   color: #000;
   text-decoration: none;
 }
 
-.dataTable-table tbody td {
+.dataTableTable tbody td {
   color: #000;
 }
 
-.dataTable-sorter {
+.dataTableSorter {
   color: #000;
   text-decoration: none;
 }
 
-.dataTable-sorter:hover {
+.dataTableSorter:hover {
   text-decoration: underline;
 }
 
-.dataTable-bottom {
+.dataTableBottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
 }
 
-.dataTable-info {
+.dataTableInfo {
   font-size: 0.875rem;
   color: #495057;
 }
 
-.dataTable-pagination {
+.dataTablePagination {
   margin: 0;
 }
 
-.dataTable-pagination-list {
+.dataTablePaginationList {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.dataTable-pagination-list li {
+.dataTablePaginationList li {
   margin-right: 0.5rem;
 }
 
-.dataTable-pagination-list a {
+.dataTablePaginationList a {
   display: block;
   padding: 0.375rem 0.75rem;
   border-radius: 0.375rem;
@@ -135,7 +133,7 @@
   text-decoration: none;
 }
 
-.dataTable-pagination-list a:hover {
+.dataTablePaginationList a:hover {
   background-color: #f1f1f1;
   text-decoration: none;
 }
@@ -146,25 +144,77 @@
   border-radius: 0.375rem;
 }
 
-.bg-success {
+.bgSuccess {
   background-color: #28a745;
   color: #ffffff;
 }
 
-.bg-warning {
+.bgWarning {
   background-color: #ffc107;
   color: #212529;
 }
 
-.bg-danger {
+.bgDanger {
   background-color: #dc3545;
   color: #ffffff;
 }
 
-.text-primary {
+.textPrimary {
   color: #007bff;
 }
 
-.text-primary:hover {
+.textPrimary:hover {
   text-decoration: none;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  /* General adjustments for body and html to prevent overflow */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Form wrapper */
+  .outingFormWrapper {
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .card {
+    margin: 0 auto;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cardBody {
+    padding: 0rem;
+  }
+
+  .formControl {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  body, html {
+    overflow-x: hidden;
+  }
 }

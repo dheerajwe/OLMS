@@ -3,6 +3,9 @@
   /* Push section 310px from the left of the screen to accommodate sidebar */
   margin-top: 20px;
   /* Add some space from the top */
+  padding: 0 15px; /* Ensure padding inside the container to prevent overflow */
+  box-sizing: border-box; /* Include padding within width calculation */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .contact .info-box {

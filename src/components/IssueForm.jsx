@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './IssueForm.css'; // Import the CSS file for styling
 
 const IssueForm = () => {

@@ -181,71 +181,36 @@
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   .profile-container {
-    display: block;
-    margin-left: 0;
-    padding: 10px;
+    display:block;
+    max-width: 100%; /* Utilize full screen width */
+    margin: 20px auto; /* Center the container and add vertical spacing */
+    position: absolute; /* Keep it within its parent container */
+    left: 0; /* Remove left offset */
+    padding: 10px; /* Maintain padding for spacing */
+    box-shadow: none; /* Cleaner look on mobile */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
 
   .col-xl-4,
   .col-xl-8 {
-    width: 100%;
+    width: 100%; /* Stack columns vertically */
     margin-right: 0;
-    margin-bottom: 20px;
-    /* Stack the columns on mobile */
+    margin-bottom: 20px; /* Add spacing between stacked elements */
   }
 
   .profile-card {
     display: block;
-    text-align: center;
-    /* Center content on mobile */
+    text-align: center; /* Center content for smaller screens */
+    margin-bottom: 20px; /* Add gap between cards */
   }
 
   .profile-card img {
-    max-width: 100px;
-    height: 100px;
+    max-width: 100px; /* Reduce image size */
+    height: auto;
     margin-bottom: 15px;
-    /* Reduce image size on mobile */
-  }
-
-  .profile-card h2,
-  .profile-card h3 {
-    margin: 10px 0;
-    /* Adjust margins */
-  }
-
-  .nav-tabs {
-    text-align: center;
-    /* Center tabs on mobile */
-  }
-
-  .nav-tabs .nav-link {
-    display: block;
-    margin-bottom: 10px;
-    /* Stack tabs vertically */
-  }
-
-  .tab-content .row {
-    margin-bottom: 10px;
-    /* Reduce row margin for mobile */
-  }
-
-  .form-control {
-    font-size: 14px;
-    /* Adjust font size for mobile */
   }
 
   .btn-primary {
-    width: 100%;
-    /* Make buttons full-width on mobile */
-  }
-}
-@media (max-width: 768px) {
-  .profile-container {
-    max-width: 66%; /* Allow full width on mobile */
-    margin: 38px ; /* Add margin on mobile */
-    position:relative;
-    left: 245px;
-    padding: 10px; /* Slightly reduced padding */
-    box-shadow: none; /* Optional: Remove shadow for cleaner look */
+    width: 100%; /* Make buttons responsive */
   }
 }

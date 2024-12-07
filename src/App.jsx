@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
-import Sidebar from './components/SideBar'; // Correct import
+import Sidebar from './components/SideBar';
 import Footer from './components/Footer';
 import PageTitle from './components/PageTitle';
 import Profile from './components/Profile';
@@ -62,7 +62,7 @@ function App() {
 
       <div className="d-flex flex-grow-1">
         {/* Sidebar */}
-        <Sidebar setCurrentPage={updatePage} isSidebarActive={isSidebarActive} toggleSidebar={toggleSidebar} />
+        <Sidebar setCurrentPage={updatePage} isSidebarActive={isSidebarActive}/>
 
         {/* Main Content */}
         <main className={`main-content flex-grow-1`}>
