@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
@@ -17,15 +17,54 @@ import DashboardCards from './components/DashboardCards';
 function App() {
   const [currentPage, setCurrentPage] = useState('Dashboard');
   const [breadcrumb, setBreadcrumb] = useState('Dashboard');
-  const [isSidebarActive, setSidebarActive] = useState(false); // Initially inactive for mobile
+  const [isSidebarActive, setSidebarActive] = useState(false); // Sidebar inactive by default for mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  const sidebarRef = useRef(null); // Reference for the sidebar
+  const togglerRef = useRef(null); // Reference for the sidebar toggler button
+
+  // Handle screen resizing for mobile/desktop detection
+  useEffect(() => {
+    const handleResize = () => {
+      const mobileView = window.innerWidth <= 768;
+      setIsMobile(mobileView);
+
+      if (!mobileView) {
+        setSidebarActive(true); // Sidebar always active on desktop
+      } else {
+        setSidebarActive(false); // Sidebar inactive on mobile
+      }
+    };
+
+    handleResize(); // Initialize state on load
+    window.addEventListener('resize', handleResize);
+
+    // Close sidebar if clicked outside on mobile
+    const handleClickOutside = (e) => {
+      // Ignore click if it's on the sidebar toggler
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(e.target) &&
+        !togglerRef.current.contains(e.target)
+      ) {
+        setSidebarActive(false); // Close the sidebar
+      }
+    };
+
+    if (isMobile) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobile]);
 
   const updatePage = (page, breadcrumbText) => {
     setCurrentPage(page);
     setBreadcrumb(breadcrumbText);
-  };
-
-  const handleHomeClick = () => {
-    updatePage('Dashboard', 'Dashboard');
+    if (isMobile) setSidebarActive(false); // Close sidebar automatically on mobile
   };
 
   const toggleSidebar = () => {
@@ -58,15 +97,21 @@ function App() {
   return (
     <div className={`App ${isSidebarActive ? 'sidebar-active' : 'sidebar-inactive'}`}>
       {/* Header */}
-      <Header toggleSidebar={toggleSidebar} />
+      <Header toggleSidebar={toggleSidebar} togglerRef={togglerRef} /> {/* Pass ref to Header */}
 
       <div className="d-flex flex-grow-1">
         {/* Sidebar */}
-        <Sidebar setCurrentPage={updatePage} isSidebarActive={isSidebarActive}/>
+        <Sidebar
+          setCurrentPage={updatePage}
+          isOpen={isSidebarActive}
+          toggleSidebar={toggleSidebar}
+          isMobile={isMobile}
+          sidebarRef={sidebarRef} // Pass ref to Sidebar
+        />
 
         {/* Main Content */}
-        <main className={`main-content flex-grow-1`}>
-          <PageTitle title={currentPage} breadcrumb={breadcrumb} onHomeClick={handleHomeClick} />
+        <main className="main-content flex-grow-1">
+          <PageTitle title={currentPage} breadcrumb={breadcrumb} />
           {renderContent()}
         </main>
       </div>

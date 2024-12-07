@@ -459,3 +459,30 @@ body {
   text-decoration: underline;
   /* Add underline on hover */
 }
+/* Global scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9966cc;
+  border-radius: 10px;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  display: none;
+}
+
+
+/* Global CSS */
+html {
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Edge */
+}

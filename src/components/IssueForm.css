@@ -75,7 +75,9 @@
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
-
+a{
+  text-decoration: none;
+}
 .dataTable-table thead th {
   background-color: #f8f9fa;
   color: #000;
@@ -192,9 +194,11 @@
   /* Data Table Wrapper */
   .dataTable-wrapper {
     padding: 38px; /* Reduce padding */
-    margin:-65px 250px;
+    margin:-16px 250px;
   }
-
+a{
+  text-decoration: none;
+}
   /* Data Table Top */
   .dataTable-top {
     flex-direction: column; /* Stack elements vertically */

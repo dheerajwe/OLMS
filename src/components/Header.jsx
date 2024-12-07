@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is includ
 import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is included
 
 // eslint-disable-next-line react/prop-types
-function Header({ toggleSidebar }) {
+function Header({ toggleSidebar,togglerRef }) {
   return (
     <header id="header" className="header fixed-top d-flex align-items-center">
       <div className="d-flex align-items-center justify-content-between">
@@ -15,6 +15,7 @@ function Header({ toggleSidebar }) {
           <span className="d-none d-lg-block">OLMS</span>
         </a>
         <button
+        ref={togglerRef}
           className="bi bi-list toggle-sidebar-btn"
           type="button"
           onClick={toggleSidebar}

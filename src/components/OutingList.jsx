@@ -58,7 +58,7 @@ const OutingList = () => {
                 <tbody>
                   <tr>
                     <th scope="row">
-                      <a href="#">1</a>
+                      <a href="#" className={styles.hi}>1</a>
                     </th>
                     <td>1-1-2000</td>
                     <td>Personal</td>
@@ -68,7 +68,7 @@ const OutingList = () => {
                   </tr>
                   <tr>
                     <th scope="row">
-                      <a href="#">2</a>
+                      <a href="#" className={styles.hi}>2</a>
                     </th>
                     <td>3-3-2000</td>
                     <td>Medical</td>
@@ -78,7 +78,7 @@ const OutingList = () => {
                   </tr>
                   <tr>
                     <th scope="row">
-                      <a href="#">3</a>
+                      <a href="#" className={styles.hi}>3</a>
                     </th>
                     <td>12-12-2000</td>
                     <td>Family Event</td>
