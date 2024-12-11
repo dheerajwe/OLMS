@@ -193,8 +193,9 @@ a{
 
   /* Data Table Wrapper */
   .dataTable-wrapper {
-    padding: 38px; /* Reduce padding */
-    margin:-16px 250px;
+    padding: 10px; /* Reduce padding */
+    margin:-16px 285px;
+    font-size: 11px;
   }
 a{
   text-decoration: none;
