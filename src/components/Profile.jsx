@@ -1,16 +1,12 @@
 import './Profile.css';
-
+import dj from '../assets/dj.jpeg';
 const Profile = () => {
   return (
     <div className="profile-container">
       <div className="col-xl-4 col-md-12">
         <div className="card profile-card">
           <div className="card-body d-flex flex-column align-items-center">
-            <img
-              src="https://intranet.rguktn.ac.in/SMS/usrphotos/user/N200800.jpg"
-              alt="Profile"
-              className="rounded-circle profile-image"
-            />
+           <img src={dj} alt="Profile" className="rounded-circle" />
             <h2 className="profile-name">Mande Dheeraj</h2>
             <h3 className="profile-id">N200800 | E-3</h3>
           </div>
