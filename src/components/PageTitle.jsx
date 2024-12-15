@@ -1,8 +1,10 @@
-function PageTitle({ title, breadcrumb, onHomeClick }) {
+import React from "react";
+
+function PageTitle({ title, subTitle, onHomeClick }) {
   const handleHomeClick = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     if (onHomeClick) {
-      onHomeClick(); 
+      onHomeClick();
     }
   };
 
@@ -14,8 +16,11 @@ function PageTitle({ title, breadcrumb, onHomeClick }) {
           <li className="breadcrumb-item">
             <a href="/" onClick={handleHomeClick}>Home</a>
           </li>
-          <li className="breadcrumb-item active">{breadcrumb}</li>
+          {/* Only display the breadcrumb title (current page) */}
+          <li className="breadcrumb-item active">{subTitle}</li>
         </ol>
+        {/* Render subbreadcrumb (Home / {section}) */}
+       
       </nav>
     </div>
   );

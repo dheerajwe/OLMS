@@ -1,123 +1,128 @@
-import { useState, useEffect, useRef } from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/Header';
-import Sidebar from './components/SideBar';
-import Footer from './components/Footer';
-import PageTitle from './components/PageTitle';
-import Profile from './components/Profile';
-import ContactSection from './components/ContactSection';
-import LeaveForm from './components/LeaveForm';
-import IssueForm from './components/IssueForm';
-import ComplaintForm from './components/ComplaintForm';
-import OutingForm from './components/OutingForm';
-import OutingList from './components/OutingList';
-import DashboardCards from './components/DashboardCards';
+import React, { useState, useEffect, useRef } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/Header";
+import Sidebar from "./components/SideBar";
+import Footer from "./components/Footer";
+import PageTitle from "./components/PageTitle";
+import ScrollToTop from "./components/ScrollToTop"; // Import the ScrollToTop component
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('Dashboard');
-  const [breadcrumb, setBreadcrumb] = useState('Dashboard');
-  const [isSidebarActive, setSidebarActive] = useState(false); // Sidebar inactive by default for mobile
+  const [breadcrumb, setBreadcrumb] = useState("Dashboard");
+  const [subBreadcrumb, setSubBreadcrumb] = useState("Home");
+  const [isSidebarActive, setSidebarActive] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  const sidebarRef = useRef(null); // Reference for the sidebar
-  const togglerRef = useRef(null); // Reference for the sidebar toggler button
+  const sidebarRef = useRef(null);
+  const togglerRef = useRef(null);
+  const location = useLocation(); // Get current location
 
-  // Handle screen resizing for mobile/desktop detection
   useEffect(() => {
     const handleResize = () => {
       const mobileView = window.innerWidth <= 768;
       setIsMobile(mobileView);
-
-      if (!mobileView) {
-        setSidebarActive(true); // Sidebar always active on desktop
-      } else {
-        setSidebarActive(false); // Sidebar inactive on mobile
-      }
+      setSidebarActive(!mobileView); // Sidebar active on desktop by default
     };
 
-    handleResize(); // Initialize state on load
-    window.addEventListener('resize', handleResize);
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
-    // Close sidebar if clicked outside on mobile
     const handleClickOutside = (e) => {
-      // Ignore click if it's on the sidebar toggler
       if (
         sidebarRef.current &&
         !sidebarRef.current.contains(e.target) &&
         !togglerRef.current.contains(e.target)
       ) {
-        setSidebarActive(false); // Close the sidebar
+        setSidebarActive(false); // Close sidebar on outside click
       }
     };
 
     if (isMobile) {
-      document.addEventListener('click', handleClickOutside);
+      document.addEventListener("click", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
-      window.removeEventListener('resize', handleResize);
+      document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("resize", handleResize);
     };
   }, [isMobile]);
 
-  const updatePage = (page, breadcrumbText) => {
-    setCurrentPage(page);
-    setBreadcrumb(breadcrumbText);
-    if (isMobile) setSidebarActive(false); // Close sidebar automatically on mobile
-  };
+  useEffect(() => {
+    const path = location.pathname;
+    // Update breadcrumb and subbreadcrumb based on the route
+    if (path.includes("leave")) {
+      if (path.includes("apply")) {
+        setBreadcrumb("Apply Leave");
+        setSubBreadcrumb("Leaves / Apply Leave");
+      } else if (path.includes("all")) {
+        setBreadcrumb("All Leaves");
+        setSubBreadcrumb("Leaves / All Leaves");
+      } else {
+        setBreadcrumb("Leaves");
+        setSubBreadcrumb("Leaves");
+      }
+    } else if (path.includes("outing")) {
+      if (path.includes("apply")) {
+        setBreadcrumb("Apply Outing");
+        setSubBreadcrumb("Outings / Apply Outing");
+      } else if (path.includes("all")) {
+        setBreadcrumb("All Outings");
+        setSubBreadcrumb("Outings / All Outings");
+      } else {
+        setBreadcrumb("Outings");
+        setSubBreadcrumb("Outings");
+      }
+    } else if (path.includes("complaints")) {
+      setBreadcrumb("Complaints");
+      setSubBreadcrumb("Complaints");
+    } else if (path.includes("contact")) {
+      setBreadcrumb("Contact");
+      setSubBreadcrumb("Contact");
+    } else if (path.includes("profile")) {
+      setBreadcrumb("Profile");
+      setSubBreadcrumb("Profile");
+    } else {
+      setBreadcrumb("Dashboard");
+      setSubBreadcrumb("Dashboard"); // Default breadcrumb
+    }
+  }, [location]);
 
   const toggleSidebar = () => {
     setSidebarActive(!isSidebarActive);
   };
 
-  const renderContent = () => {
-    switch (currentPage) {
-      case 'Profile':
-        return <Profile />;
-      case 'Contact':
-        return <ContactSection />;
-      case 'Apply Leave':
-        return <LeaveForm />;
-      case 'All Leaves':
-        return <IssueForm />;
-      case 'Complaints':
-        return <ComplaintForm />;
-      case 'Apply Outing':
-        return <OutingForm />;
-      case 'All Outings':
-        return <OutingList />;
-      case 'Dashboard':
-        return <DashboardCards />;
-      default:
-        return <div>No Content Found</div>;
-    }
+  const handleHomeClick = () => {
+    // Navigate to the home/dashboard page
   };
 
   return (
-    <div className={`App ${isSidebarActive ? 'sidebar-active' : 'sidebar-inactive'}`}>
-      {/* Header */}
-      <Header toggleSidebar={toggleSidebar} togglerRef={togglerRef} /> {/* Pass ref to Header */}
+    <div className={`App ${isSidebarActive ? "sidebar-active" : "sidebar-inactive"}`}>
+      <Header toggleSidebar={toggleSidebar} togglerRef={togglerRef} />
 
       <div className="d-flex flex-grow-1">
-        {/* Sidebar */}
         <Sidebar
-          setCurrentPage={updatePage}
           isOpen={isSidebarActive}
           toggleSidebar={toggleSidebar}
           isMobile={isMobile}
-          sidebarRef={sidebarRef} // Pass ref to Sidebar
+          sidebarRef={sidebarRef}
         />
 
-        {/* Main Content */}
         <main className="main-content flex-grow-1">
-          <PageTitle title={currentPage} breadcrumb={breadcrumb} />
-          {renderContent()}
+          {/* Pass breadcrumb and subBreadcrumb to PageTitle */}
+          <PageTitle 
+            title={breadcrumb} 
+            subTitle={subBreadcrumb} 
+            onHomeClick={handleHomeClick} 
+          />
+          <Outlet /> {/* Render nested routes here */}
         </main>
       </div>
 
-      {/* Footer */}
       <Footer />
+
+      {/* Include ScrollToTop component to reset scroll position on route change */}
+      <ScrollToTop />
     </div>
   );
 }

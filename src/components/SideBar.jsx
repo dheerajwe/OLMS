@@ -1,17 +1,21 @@
-import React, { useEffect } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import React, { useEffect } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
-function Sidebar({ setCurrentPage, isOpen, toggleSidebar, isMobile, sidebarRef }) {
+function Sidebar({ isOpen, toggleSidebar, isMobile, sidebarRef }) {
+  const navigate = useNavigate();
+
   useEffect(() => {
+    const sidebarElement = document.getElementById("sidebar");
     if (isOpen) {
-      document.getElementById('sidebar').classList.add('active');
+      sidebarElement.classList.add("active");
     } else {
-      document.getElementById('sidebar').classList.remove('active');
+      sidebarElement.classList.remove("active");
     }
   }, [isOpen]);
 
-  const handleItemClick = (page, breadcrumb) => {
-    setCurrentPage(page, breadcrumb);
+  const handleItemClick = (path) => {
+    navigate(path); // Navigate to the selected route
     if (isMobile) toggleSidebar(); // Automatically close sidebar on mobile
   };
 
@@ -19,16 +23,22 @@ function Sidebar({ setCurrentPage, isOpen, toggleSidebar, isMobile, sidebarRef }
     <aside
       id="sidebar"
       ref={sidebarRef} // Attach the ref here
-      className={`sidebar ${isOpen ? 'active' : ''}`}
+      className={`sidebar ${isOpen ? "active" : ""}`}
     >
       <ul className="sidebar-nav" id="sidebar-nav">
+        {/* Dashboard */}
         <li className="nav-item">
-          <a className="nav-link" href="#" onClick={() => handleItemClick('Dashboard', 'Dashboard')}>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+            onClick={() => handleItemClick("/dashboard")}
+          >
             <i className="bi bi-grid"></i>
             <span>Dashboard</span>
-          </a>
+          </NavLink>
         </li>
 
+        {/* Leaves Section */}
         <li className="nav-item">
           <a className="nav-link collapsed" data-bs-target="#leaves-nav" data-bs-toggle="collapse" href="#">
             <i className="bi bi-calendar"></i>
@@ -37,20 +47,29 @@ function Sidebar({ setCurrentPage, isOpen, toggleSidebar, isMobile, sidebarRef }
           </a>
           <ul id="leaves-nav" className="nav-content collapse" data-bs-parent="#sidebar-nav">
             <li>
-              <a href="#" onClick={() => handleItemClick('Apply Leave', 'Leaves / Apply Leave')}>
+              <NavLink
+                to="/leave/apply"
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => handleItemClick("/leave/apply")}
+              >
                 <i className="bi bi-circle"></i>
                 <span>Apply Leave</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="#" onClick={() => handleItemClick('All Leaves', 'Leaves / All Leaves')}>
+              <NavLink
+                to="/leave/all"
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => handleItemClick("/leave/all")}
+              >
                 <i className="bi bi-circle"></i>
                 <span>All Leaves</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </li>
 
+        {/* Outings Section */}
         <li className="nav-item">
           <a className="nav-link collapsed" data-bs-target="#outings-nav" data-bs-toggle="collapse" href="#">
             <i className="bi bi-signpost"></i>
@@ -59,39 +78,62 @@ function Sidebar({ setCurrentPage, isOpen, toggleSidebar, isMobile, sidebarRef }
           </a>
           <ul id="outings-nav" className="nav-content collapse" data-bs-parent="#sidebar-nav">
             <li>
-              <a href="#" onClick={() => handleItemClick('Apply Outing', 'Outings / Apply Outing')}>
+              <NavLink
+                to="/outing/apply"
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => handleItemClick("/outing/apply")}
+              >
                 <i className="bi bi-circle"></i>
                 <span>Apply Outing</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="#" onClick={() => handleItemClick('All Outings', 'Outings / All Outings')}>
+              <NavLink
+                to="/outing/all"
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => handleItemClick("/outing/all")}
+              >
                 <i className="bi bi-circle"></i>
                 <span>All Outings</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </li>
 
+        {/* Complaints */}
         <li className="nav-item">
-          <a className="nav-link" href="#" onClick={() => handleItemClick('Complaints', 'Complaints')}>
+          <NavLink
+            to="/complaints"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+            onClick={() => handleItemClick("/complaints")}
+          >
             <i className="bi bi-flag"></i>
             <span>Complaints</span>
-          </a>
+          </NavLink>
         </li>
 
+        {/* Contact */}
         <li className="nav-item">
-          <a className="nav-link" href="#" onClick={() => handleItemClick('Contact', 'Contact')}>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+            onClick={() => handleItemClick("/contact")}
+          >
             <i className="bi bi-envelope"></i>
             <span>Contact</span>
-          </a>
+          </NavLink>
         </li>
 
+        {/* Profile */}
         <li className="nav-item">
-          <a className="nav-link" href="#" onClick={() => handleItemClick('Profile', 'Profile')}>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+            onClick={() => handleItemClick("/profile")}
+          >
             <i className="bi bi-person"></i>
             <span>Profile</span>
-          </a>
+          </NavLink>
         </li>
       </ul>
     </aside>
