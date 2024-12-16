@@ -63,7 +63,9 @@
   margin-bottom: 1rem;
   color: #212529;
 }
-
+.dataTable-input{
+  border:1px solid grey;
+}
 .table-borderless th,
 .table-borderless td {
   border: 0; /* Removed border */
@@ -75,9 +77,10 @@
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
-a{
+a {
   text-decoration: none;
 }
+
 .dataTable-table thead th {
   background-color: #f8f9fa;
   color: #000;
@@ -193,13 +196,13 @@ a{
 
   /* Data Table Wrapper */
   .dataTable-wrapper {
-    padding: 10px; /* Reduce padding */
-    margin:-16px 285px;
+    padding: 12px; /* Reduce padding */
     font-size: 11px;
+    margin: 1px 291px;
+    width:41%;
+
   }
-a{
-  text-decoration: none;
-}
+
   /* Data Table Top */
   .dataTable-top {
     flex-direction: column; /* Stack elements vertically */
@@ -231,5 +234,41 @@ a{
   /* Data Table Info */
   .dataTable-info {
     font-size: 0.75rem; /* Adjust font size for smaller screens */
+  }
+
+  /* Specific width adjustments */
+  @media (max-width: 430px) {
+    .dataTable-wrapper {
+      width: 42%;
+      margin: 1px 289px;
+    }
+  }
+
+  @media (max-width: 412px) {
+    .dataTable-wrapper {
+      width: 42%;
+      margin: 1px 279px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .dataTable-wrapper {
+      width: 39%;
+      margin: 1px 279px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .dataTable-wrapper {
+      width: 39%;
+      margin: 1px 280px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .dataTable-wrapper {
+      width: 37%;
+      margin: 1px 279px;
+    }
   }
 }

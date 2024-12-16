@@ -9,6 +9,8 @@ function LeaveForm() {
     leaveReason: '',
   });
 
+  const [submittedData, setSubmittedData] = useState([]); // State to store submitted data
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,8 +21,19 @@ function LeaveForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form Data:', formData);
+    // Store the form data in submittedData
+    setSubmittedData((prevData) => [...prevData, formData]);
+
+    // Log the updated submitted data to the console
+    console.log('Submission Log:', [...submittedData, formData]);
+
+    // Reset the form fields
+    setFormData({
+      leaveFrom: '',
+      leaveTo: '',
+      leaveType: 'none',
+      leaveReason: '',
+    });
   };
 
   return (
@@ -83,8 +96,11 @@ function LeaveForm() {
             className="btn btn-primary w-50"
             style={{ margin: '5px 25%' }}
           />
+          
         </div>
       </form>
+      
+
     </div>
   );
 }
